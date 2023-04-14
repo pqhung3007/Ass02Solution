@@ -1,0 +1,39 @@
+﻿@page
+@model Ass02Solution.Pages.Account.LoginModel
+@{
+}
+
+<div class="col-12 col-md-4">
+    <div class="mw-md py-5 mx-auto">
+        <h1>Please log in here</h1>
+        <p>Enter your details below</p>
+        <form asp-page="/Login" method="post">
+            <div class="mb-4">
+                <label class="form-label fw-bold">Username *</label>
+                <input class="form-control"
+                       type="text"
+                       placeholder="Your username"
+                       asp-for="@Model.Account.UserName" />
+                <span class="text-danger" asp-validation-for="@Model.Account.UserName"></span><br />
+            </div>
+            <div class="mb-4">
+                <label class="form-label fw-bold">Password *</label>
+                <input class="form-control"
+                       type="password"
+                       placeholder="*******"
+                       asp-for="@Model.Account.Password" />
+                <span class="text-danger" asp-validation-for="@Model.Account.Password"></span><br />
+            </div>
+            <div class="d-flex mb-5 flex-wrap align-items-center justify-content-between">
+                <div>
+                    <a class="btn p-0 btn-link fs-9" asp-page="ForgotPassword">Forgot Password?</a>
+                </div>
+            </div>
+            <input class="btn w-100 btn-primary shadow" type="submit" value="Sign In" />
+        </form>
+        <button class="btn mt-4 w-100 btn-success" onclick="window.location.href='/Account/Register'" type="submit">
+            Register
+        </button>
+        <p class="text-danger">@ViewData["wrongaccount"]</p>
+    </div>
+</div>

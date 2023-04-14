@@ -1,0 +1,40 @@
+﻿@page
+@model Ass02Solution.Pages.Manage.ProductsModel
+@{
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <td>Name</td>
+            <th>Supplier</th>
+            <th>Category</th>
+            <th>QuantityPerUnit</th>
+            <th>UnitPrice</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Product)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Supplier.CompanyName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.QuantityPerUnit</td>
+                    <td>@item.UnitPrice<strong>$</strong></td>
+                    <td>
+                        <img style="width: 50px; height: 50px" src="https://nomoneynotime.com.au/uploads/recipes/shutterstock_2042520416-1.jpg" />
+                    </td>
+                    <td>
+
+                        <a class="btn btn-primary" asp-page="./EditProduct" asp-route-id="@item.ProductId">Edit</a>
+                        <a class="btn btn-danger" asp-page="./DeleteProduct" asp-route-id="@item.ProductId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

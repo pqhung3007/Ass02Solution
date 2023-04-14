@@ -1,0 +1,45 @@
+﻿@page
+@model Ass02Solution.Pages.Account.RegisterModel
+@{
+}
+<form asp-page="/Register" method="post">
+    <div class="mb-2">
+        <label class="form-label fw-bold">Full Name *</label>
+        <input class="form-control"
+               type="text"
+               placeholder="Enter your username"
+               asp-for="@Model.account.UserName" />
+        <span class="text-danger" asp-validation-for="@Model.account.UserName"></span><br />
+    </div>
+  
+    <div class="mb-2">
+        <label class="form-label fw-bold">Password *</label>
+        <input class="form-control"
+               type="password"
+               placeholder="*******"
+               asp-for="@Model.account.Password" />
+        <span class="text-danger" asp-validation-for="@Model.account.Password"></span><br />
+    </div>
+    
+    <div class="mb-2">
+        <label class="form-label fw-bold">Fullname *</label>
+        <input class="form-control"
+               type="text"
+               placeholder="Enter your name"
+               asp-for="@Model.account.FullName" />
+        <span class="text-danger" asp-validation-for="@Model.account.FullName"></span><br />
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label fw-bold">Confirm password *</label>
+        <input class="form-control"
+               type="password"
+               placeholder="*******"
+               name="confirmedPassword" />
+        <span class="text-danger">@ViewData["Not matched"]</span><br /> 
+    </div>
+        <span class="text-danger">@ViewData["duplicate username"]</span><br />
+
+    <input class="btn w-100 btn-primary shadow" type="submit" value="Register" />
+
+</form>
