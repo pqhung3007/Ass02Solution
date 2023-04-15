@@ -1,0 +1,48 @@
+﻿@page
+@model Ass02Solution.Pages.Manage.Accounts.IndexModel
+@{
+}
+
+<h1>Account Management</h1>
+<a class="btn btn-primary" asp-page="./Create">Create new</a>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th>Username</th>
+            <th>Full Name</th>
+            <th>Password</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model.Accounts)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Password</td>
+                    <td>
+                        @if (@item.Type == 1)
+                        {
+                            <span class="text-primary">Admin</span>
+                        }
+                        else
+                        {
+                            <span class="text-secondary">Member</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Type != 1)
+                        {
+                            <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.AccountId">Edit</a>
+                            <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.AccountId">Delete</a>
+
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,8 +1,9 @@
 using Ass02Solution.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Ass02Solution.Pages.Manage.Categories
+namespace Ass02Solution.Pages.Manage.Accounts
 {
     public class EditModel : PageModel
     {
@@ -14,18 +15,21 @@ namespace Ass02Solution.Pages.Manage.Categories
         }
 
         [BindProperty]
-        public Category Category { get; set; }
-         
-        public void OnGet(int? id)
+        public Models.Account Account { get; set; }
+        
+        public void OnGet(int id)
         {
-            Category = _context.Categories.Find( id);
+            Account = _context.Accounts.Find(id);
+            // get all types from accounts and put them into a SelectList
+            ViewData["Type"] = new SelectList(_context.Accounts.ToList(), "Type", "AccountId");
+
         }
 
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(Category);
+                _context.Accounts.Update(Account);
                 _context.SaveChanges();
                 return RedirectToPage("Index");
             }

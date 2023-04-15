@@ -2,30 +2,25 @@ using Ass02Solution.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Ass02Solution.Pages.Manage.Categories
+namespace Ass02Solution.Pages.Manage.Accounts
 {
-    public class EditModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly PRN221_As02Context _context;
 
-        public EditModel(PRN221_As02Context context)
+        public CreateModel(PRN221_As02Context context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Category Category { get; set; }
-         
-        public void OnGet(int? id)
-        {
-            Category = _context.Categories.Find( id);
-        }
+        public Models.Account Account { get; set; }
 
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
-                _context.Categories.Update(Category);
+                _context.Accounts.Update(Account);
                 _context.SaveChanges();
                 return RedirectToPage("Index");
             }
