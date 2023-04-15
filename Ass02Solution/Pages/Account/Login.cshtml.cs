@@ -27,7 +27,7 @@ namespace Ass02Solution.Pages.Account
                 HttpContext.Session.SetString("username", a.UserName);
                 if (a.Type == 1)
                 {
-                    return RedirectToPage("/Manage/Products");
+                    return RedirectToPage("/Manage/Products/Index");
                 }
                 return RedirectToPage("../Products/Index");
             }

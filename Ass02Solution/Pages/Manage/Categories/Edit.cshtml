@@ -1,0 +1,27 @@
+﻿@page
+@model Ass02Solution.Pages.Manage.Categories.EditModel
+@{
+}
+
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <form method="post">
+            <fieldset class="border rounded-3 p-3">
+                <legend class="float-none w-auto px-3">Edit pizza information</legend>
+                <input type="hidden" asp-for="Category.CategoryId" />
+                <div class="form-group">
+                    <label asp-for="Category.CategoryName" class="control-label">Name</label>
+                    <input asp-for="Category.CategoryName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Category.Description" class="control-label">Description</label>
+                    <input asp-for="Category.Description" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
