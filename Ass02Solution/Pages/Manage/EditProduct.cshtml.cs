@@ -31,6 +31,9 @@ namespace Ass02Solution.Pages.Manage
             {
                 return Page();
             }
+    //   To detect how ModelState is invalid, use     var errors = ModelState
+    //.Select(x => new { x.Key, x.Value.Errors })
+    //.ToArray();
             _context.Products.Update(Product);
             _context.SaveChanges();
             return RedirectToPage("/Manage/Products");
