@@ -11,9 +11,9 @@ namespace Ass02Solution
 {
     public class DeleteModel : PageModel
     {
-        private readonly Ass02Solution.Models.PRN221_As02Context _context;
+        private readonly PRN221_As02Context _context;
 
-        public DeleteModel(Ass02Solution.Models.PRN221_As02Context context)
+        public DeleteModel(PRN221_As02Context context)
         {
             _context = context;
         }
